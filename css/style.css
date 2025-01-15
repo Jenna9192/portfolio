@@ -1,0 +1,7 @@
+body{
+    font-family: "Cormorant Garamond", Helvetica, sans-serif ;
+    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+    background-attachment: fixed; /* This ensures the background stays fixed during scrolling */
+    background-size: cover; /* Optional: Ensures the gradient covers the entire viewport */
+    
+}
