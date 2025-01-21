@@ -1,7 +1,123 @@
 body{
-    font-family: "Cormorant Garamond", Helvetica, sans-serif ;
-    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+    font-family: "Host Grotesk", 'Single Day', sans-serif;
+    background-image: linear-gradient(to bottom, white, #f4cdcf);
     background-attachment: fixed; /* This ensures the background stays fixed during scrolling */
     background-size: cover; /* Optional: Ensures the gradient covers the entire viewport */
+    color: #666666;
+}
+
+*{
+    margin: 0;
+}
+
+nav{
+    display: flex;
+    padding: 1%;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
+nav a {
+    font-size: clamp(12px, 1vw, 24px);
+    display: inline;
+    text-decoration: none;
+    color: #4e7cb2;
+    padding-right: 30px;
+}
+
+nav a:hover{
+    color: #e84797;
+    text-decoration: underline;
+}
+
+h1, h2{
+    font-family: "Gilda Display", 'Times New Roman', Times, serif;
+    color: #4e7cb2;
+}
+
+h1{
+    font-size: 150px;
+    font-style: italic;
+}
+
+h2{
+    font-size: 60px;
+}
+
+.header{
+    margin: 100px 10px 20px 10px;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+/* Styles for the element */
+.header .item:first-child {
+    border: #666666 1px solid;
+    padding: 100px 10px 10px 10px;
+    border-radius: 20px;
+    border-top-right-radius: 300px;
+    margin-bottom: 30px;
+    transition: transform 0.3s, background-color 0.3s, border-radius 0.3s;
+    background-color: transparent;
+    position: relative;
+}
+
+.header .item:last-child {
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: flex-end; /* Align content to the bottom */
+    padding-bottom: 40px;
+}
+
+p{
+    padding-bottom: 20px;
+}
+
+p a{
+    text-decoration: none;
+    color: #4e7cb2;
+    font-weight: bold;
+}
+
+p a:hover{
+    color: #e84797;
+    text-decoration: underline;
+}
+
+
+@media(min-width: 600px){
+    nav a[href="mailto:jennali@umich.edu"] {
+        margin-left: auto;
+        background-color: black;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    nav a[href="mailto:jennali@umich.edu"]:hover {
+        background-color: #e84797;
+        text-decoration: none;
+    }
+
+    .header{
+        grid-template-columns: auto auto;
+        margin: 5% 5% 5% 5%;
+        column-gap: 75px;
+    }
+
+    h1{
+        font-size: 240px;
+        font-style: italic;
+    }
     
+    h2{
+        font-size: 100px;
+    }
+
+    p{
+        font-size: 18px;
+    }
+
 }
