@@ -17,6 +17,7 @@ nav{
     position: sticky;
     top: 0px;
     z-index: 10;
+    background-color: white;
 }
 
 nav a {
@@ -52,22 +53,19 @@ h2{
     grid-template-rows: auto auto;
 }
 
-/* Styles for the element */
+
 .header .item:first-child {
     border: #666666 1px solid;
     padding: 100px 10px 10px 10px;
     border-radius: 20px;
     border-top-right-radius: 300px;
     margin-bottom: 30px;
-    transition: transform 0.3s, background-color 0.3s, border-radius 0.3s;
-    background-color: transparent;
-    position: relative;
 }
 
 .header .item:last-child {
     display: flex;
-    flex-direction: column; /* Stack child elements vertically */
-    justify-content: flex-end; /* Align content to the bottom */
+    flex-direction: column; 
+    justify-content: flex-end;
     padding-bottom: 40px;
 }
 
@@ -86,6 +84,27 @@ p a:hover{
     text-decoration: underline;
 }
 
+footer{
+    margin: 10px;
+    display: grid;
+    grid-template-rows: auto auto;
+
+}
+
+footer .item p{
+    font-family: "Gilda Display", 'Times New Roman', Times, serif;
+    color: black;
+    padding: 0px;
+}
+
+footer .item:last-child{
+    padding: 20px;
+    border-radius: 20px;
+    text-align: right;
+    border-top-left-radius: 300px;
+    border: #666666 1px solid;
+
+}
 
 @media(min-width: 600px){
     nav a[href="mailto:jennali@umich.edu"] {
@@ -120,4 +139,9 @@ p a:hover{
         font-size: 18px;
     }
 
+    footer{
+        grid-template-columns: auto auto;
+        margin: 5% 5% 5% 5%;
+        column-gap: 75px;
+    }
 }
