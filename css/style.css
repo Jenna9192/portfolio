@@ -1,14 +1,20 @@
+:root {
+    --background_color: white;
+    --text_color: #203F9A;
+    --accent_color: #E84797;
+}
+
 body{
     font-family: "Host Grotesk", 'Single Day', sans-serif;
-    background-image: linear-gradient(to bottom, white, #f4cdcf);
-    background-attachment: fixed; /* This ensures the background stays fixed during scrolling */
-    background-size: cover; /* Optional: Ensures the gradient covers the entire viewport */
-    color: #666666;
 }
 
 *{
     margin: 0;
 }
+
+html {
+    scroll-behavior: smooth;
+  }
 
 nav{
     display: flex;
@@ -20,68 +26,82 @@ nav{
     background-color: white;
 }
 
+nav a[href="index.html"]{
+    color: white;
+    font-weight: bold;
+    background-color: var(--text_color);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
 nav a {
     font-size: clamp(12px, 1vw, 24px);
     display: inline;
     text-decoration: none;
-    color: #4e7cb2;
-    padding-right: 30px;
+    color: var(--text_color);
 }
 
 nav a:hover{
-    color: #e84797;
+    color: var(--accent_color);
     text-decoration: underline;
 }
 
+nav .left a[href="mailto:jennali@umich.edu"] {
+    background-color: var(--text_color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+nav .left{
+    margin-left: auto;
+}
+
+nav .left a {
+    padding-right: 20px;
+}
+
+nav a[href="mailto:jennali@umich.edu"]:hover, nav a[href="index.html"]:hover {
+    background-color: var(--accent_color);
+    text-decoration: none;
+    color:white;
+}
+
 h1, h2{
-    font-family: "Gilda Display", 'Times New Roman', Times, serif;
-    color: #4e7cb2;
+    color: var(--text_color);
 }
 
 h1{
-    font-size: 150px;
-    font-style: italic;
+    font-size: 64px;
+    font-style: bold;
 }
 
 h2{
-    font-size: 60px;
+    font-size: 20px;
+    padding-bottom: 25px;
 }
 
 .header{
-    margin: 100px 10px 20px 10px;
-    display: grid;
-    grid-template-rows: auto auto;
+    padding: 100px 20px 20px 20px;
+    background-image: linear-gradient( #F1DDD0, #F4CDCF);
 }
 
-
-.header .item:first-child {
-    border: #666666 1px solid;
-    padding: 100px 10px 10px 10px;
-    border-radius: 20px;
-    border-top-right-radius: 300px;
-    margin-bottom: 30px;
-}
-
-.header .item:last-child {
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-end;
-    padding-bottom: 40px;
-}
 
 p{
+    color: var(--text_color);
     padding-bottom: 20px;
 }
 
 p a{
-    text-decoration: none;
-    color: #4e7cb2;
-    font-weight: bold;
+    color: var(--accent_color);
 }
 
-p a:hover{
-    color: #e84797;
-    text-decoration: underline;
+.header p a:hover{
+    color:black;
 }
 
 footer{
@@ -101,38 +121,95 @@ footer .item:last-child{
     padding: 20px;
     border-radius: 20px;
     text-align: right;
-    border-top-left-radius: 300px;
     border: #666666 1px solid;
+}
+
+#project{
+    background-color: white;
+    padding: 50px 20px;
+}
+
+.other{
+    padding: 50px 20px;
+    background-color: linear-gradient(#F4CDCF, #F5C6CF);
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
 
 }
 
-@media(min-width: 600px){
-    nav a[href="mailto:jennali@umich.edu"] {
-        margin-left: auto;
-        background-color: black;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-    }
+.project_item img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    nav a[href="mailto:jennali@umich.edu"]:hover {
-        background-color: #e84797;
-        text-decoration: none;
+.current {
+    color:var(--accent_color);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    user-select: text;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.title {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.caption {
+    transform: translateY(100%);
+    opacity: 0;
+    margin-top: auto;
+}
+
+.title,
+.caption {
+    padding: 5%;
+    background-color: #ffffff;
+    width: 100%;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project_item {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* interactive animations for gallery images */
+.project_item:hover,
+.project_item:focus {
+    transform: scale(1.05);
+    outline: var(--text_color) 1px solid;
+
+    .title,
+    .caption {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(min-width: 600px){
+    nav{
+        padding: 10px 125px;
     }
 
     .header{
-        grid-template-columns: auto auto;
-        margin: 5% 5% 5% 5%;
-        column-gap: 75px;
-    }
-
-    h1{
-        font-size: 240px;
-        font-style: italic;
-    }
-    
-    h2{
-        font-size: 100px;
+        padding: 125px 125px 25px 125px;
     }
 
     p{
@@ -141,7 +218,15 @@ footer .item:last-child{
 
     footer{
         grid-template-columns: auto auto;
-        margin: 5% 5% 5% 5%;
+        margin: 5%;
         column-gap: 75px;
+    }
+
+    #project{
+        padding: 50px 125px 50px 125px;
+    }
+
+    .gallery{
+        grid-template-columns: repeat(2,1fr);
     }
 }
