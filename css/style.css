@@ -26,7 +26,7 @@ nav{
     background-color: white;
 }
 
-nav a[href="index.html"]{
+nav a[href="index.html"], footer a{
     color: white;
     font-weight: bold;
     background-color: var(--text_color);
@@ -36,6 +36,7 @@ nav a[href="index.html"]{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    text-decoration: none;
 }
 
 nav a {
@@ -65,7 +66,7 @@ nav .left a {
     padding-right: 20px;
 }
 
-nav a[href="mailto:jennali@umich.edu"]:hover, nav a[href="index.html"]:hover {
+nav a[href="mailto:jennali@umich.edu"]:hover, nav a[href="index.html"]:hover, footer a:hover {
     background-color: var(--accent_color);
     text-decoration: none;
     color:white;
@@ -81,8 +82,8 @@ h1{
 }
 
 h2{
-    font-size: 20px;
-    padding-bottom: 25px;
+    font-size: 16px;
+    padding-bottom: 20px;
 }
 
 .header{
@@ -100,30 +101,28 @@ p a{
     color: var(--accent_color);
 }
 
-.header p a:hover{
+.header a:hover{
     color:black;
 }
 
 footer{
-    margin: 10px;
-    display: grid;
-    grid-template-rows: auto auto;
-
+    padding-top: 50px;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
 }
 
-footer .item p{
-    font-family: "Gilda Display", 'Times New Roman', Times, serif;
-    color: black;
-    padding: 0px;
+.links{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding-bottom: 10px;
 }
 
-footer .item:last-child{
-    padding: 20px;
-    border-radius: 20px;
-    text-align: right;
-    border: #666666 1px solid;
+span{
+    background-color: var(--accent_color);
+    color: white;
 }
-
 #project{
     background-color: white;
     padding: 50px 20px;
@@ -131,14 +130,13 @@ footer .item:last-child{
 
 .other{
     padding: 50px 20px;
-    background-color: linear-gradient(#F4CDCF, #F5C6CF);
+    background: linear-gradient(#F4CDCF, #F5C6CF);
 }
 
 .gallery{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 50px;
-
+    gap: 30px;
 }
 
 .project_item img {
@@ -180,10 +178,15 @@ footer .item:last-child{
 
 .title,
 .caption {
-    padding: 5%;
+    padding: 10px;
     background-color: #ffffff;
     width: 100%;
     transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.title{
+    color:var(--text_color);
+    font-weight: bold;
 }
 
 .project_item {
@@ -208,22 +211,21 @@ footer .item:last-child{
         padding: 10px 125px;
     }
 
+    #project, footer, .header, .other {
+        padding: 50px 125px;
+    }
+
+    footer{
+        padding-top: 50px;
+        padding-bottom: 10px;
+    }
+
     .header{
-        padding: 125px 125px 25px 125px;
+        padding-top: 125px;
     }
 
     p{
         font-size: 18px;
-    }
-
-    footer{
-        grid-template-columns: auto auto;
-        margin: 5%;
-        column-gap: 75px;
-    }
-
-    #project{
-        padding: 50px 125px 50px 125px;
     }
 
     .gallery{
