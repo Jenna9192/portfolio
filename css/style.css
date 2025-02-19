@@ -97,7 +97,7 @@ p{
     padding-bottom: 20px;
 }
 
-p a{
+a{
     color: var(--accent_color);
 }
 
@@ -120,7 +120,10 @@ footer{
 }
 
 span{
-    background-color: var(--accent_color);
+    background-color: var(--text_color);
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
     color: white;
 }
 #project{
@@ -133,7 +136,7 @@ span{
     background: linear-gradient(#F4CDCF, #F5C6CF);
 }
 
-.gallery{
+.gallery, .other_gallery{
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
@@ -165,12 +168,12 @@ span{
     overflow: hidden;
 }
 
-.title {
+.overlay .title {
     transform: translateY(-100%);
     opacity: 0;
 }
 
-.caption {
+.overlay .caption {
     transform: translateY(100%);
     opacity: 0;
     margin-top: auto;
@@ -180,8 +183,11 @@ span{
 .caption {
     padding: 10px;
     background-color: #ffffff;
-    width: 100%;
     transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+a .caption{
+    color:black;
 }
 
 .title{
@@ -206,7 +212,64 @@ span{
     }
 }
 
-@media(min-width: 600px){
+.slideshow_container {
+    max-width: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.numbertext {
+    color: var(--accent_color);
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: var(--accent_color);
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 50%;
+    user-select: none;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.next {
+right: 0;
+border-radius: 50%;
+}
+  
+.prev:hover, .next:hover {
+    color:white;
+    background-color: var(--accent_color);
+}
+
+hr{
+    color:var(--text_color)
+}
+
+.other_gallery .title, .other_gallery .caption{
+    background: none;
+}
+
+@media(min-width: 750px){
     nav{
         padding: 10px 125px;
     }
@@ -230,5 +293,33 @@ span{
 
     .gallery{
         grid-template-columns: repeat(2,1fr);
+    }
+
+    .other_gallery .slideshow:nth-child(3){
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px
+    }
+    .other_gallery .slideshow:nth-child(3) .description{
+        grid-column: 1/span 2;
+    }
+
+    .other_gallery .slideshow:first-child{
+        display:grid;
+        gap: 20px;
+        grid-template-columns: 70% 30%;
+    }
+
+    
+}
+
+@media(min-width: 1200px){
+    .other_gallery .slideshow:nth-child(3){
+        display:grid;
+        gap: 20px;
+        grid-template-columns: 20% 40% 40%;
+    }
+    .other_gallery .slideshow:nth-child(3) .description{
+        grid-column: 1/span 1;
     }
 }
