@@ -6,6 +6,7 @@
 
 body{
     font-family: "Host Grotesk", 'Single Day', sans-serif;
+    color: #2b2b2b;
 }
 
 *{
@@ -95,6 +96,8 @@ h2{
 p{
     color: var(--text_color);
     padding-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 a{
@@ -102,7 +105,8 @@ a{
 }
 
 .header a:hover{
-    color:black;
+    background-color: var(--accent_color);
+    color:white;
 }
 
 footer{
@@ -199,7 +203,6 @@ a .caption{
     transition: transform 0.5s ease-in-out;
 }
 
-/* interactive animations for gallery images */
 .project_item:hover,
 .project_item:focus {
     transform: scale(1.05);
@@ -269,6 +272,89 @@ hr{
     background: none;
 }
 
+.polaroid{
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    height: 350px;
+    align-self: center;
+    justify-self: center;
+    transform: rotate(-5deg);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.polaroid:hover{
+    transform: rotate(8deg) scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.polaroid::before {
+    content: "";
+    position: absolute;
+    top: -10px; /* Moves it above the Polaroid */
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg); /* Center and slight rotation */
+    width: 80px; /* Adjust tape width */
+    height: 25px; /* Adjust tape height */
+    background: rgba(255, 229, 153, 0.8); /* Light beige/yellow for tape */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adds depth */
+    opacity: 0.9;
+    clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%); /* Slightly torn edges */
+}
+
+.polaroid figcaption{
+    font-family: "Gilda Display";
+    padding-top: 10px;
+    font-size: 30px;
+    font-style: italic;
+    color: var(--text_color);
+}
+
+.draggable{
+    z-index: 9;
+    text-align: center;
+    cursor: pointer;
+}
+
+#wow{
+    position: absolute;
+    width: 100px;
+    left: 8%;
+    top: 20%;
+}
+
+#molly_tea{
+    position: absolute;
+    width: 60px;
+    left: 75%;
+    top: 55%;
+    transform: rotate(10deg);
+}
+
+#sunglasses{
+    position: absolute;
+    width: 70px;
+    left: 65%;
+    top: 20%;
+    transform: rotate(8deg);
+}
+
+#nailpolish{
+    position: absolute;
+    width: 45px;
+    left: 70%;
+    top: 30%;
+    transform: rotate(8deg);
+}
+
+#jennali{
+    position: absolute;
+    width: 125px;
+    left: 8%;
+    top: 30%;
+}
+
 @media(min-width: 750px){
     nav{
         padding: 10px 125px;
@@ -285,10 +371,6 @@ hr{
 
     .header{
         padding-top: 125px;
-    }
-
-    p{
-        font-size: 18px;
     }
 
     .gallery{
@@ -310,6 +392,36 @@ hr{
         grid-template-columns: 70% 30%;
     }
 
+    #about_me{
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 40% 60%;
+    }
+
+    #wow{
+        left: 10%;
+        top: 30%;
+    }
+
+    #molly_tea{
+        left: 35%;
+        top: 70%;
+    }
+
+    #sunglasses{
+        left: 32%;
+        top: 30%;
+    }
+
+    #nailpolish{
+        left: 15%;
+        top: 55%;
+    }
+
+    #jennali{
+        left: 8%;
+        top: 50%;
+    }
     
 }
 
